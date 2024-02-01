@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* #root {
+  
+  background: linear-gradient(to right, #ffffff, #a4d7e1);
+} */
+
+#boxProjects {
+  box-shadow: 0px 7px 5px 0px rgba(0, 139, 139, 0.75);
+  -webkit-box-shadow: 0px 7px 5px 0px rgba(0, 139, 139, 0.75);
+  -moz-box-shadow: 0px 7px 5px 0px rgba(0, 139, 139, 0.75);
+}
+
+#boxProjectsLight {
+  box-shadow: 0px 7px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 7px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 7px 5px 0px rgba(0, 0, 0, 0.75);
+}
+#box-button {
+  box-shadow: 0px 4px 5px 0px rgba(0, 139, 139, 0.75);
+  -webkit-box-shadow: 0px 4px 5px 0px rgba(0, 139, 139, 0.75);
+  -moz-box-shadow: 0px 4px 5px 0px rgba(0, 139, 139, 0.75);
+}
+
+#contact-button {
+  box-shadow: 0px -2px 5px 0px rgba(0, 255, 255, 0.75);
+  -webkit-box-shadow: 0px -2px 5px 0px rgba(0, 255, 255, 0.75);
+  -moz-box-shadow: 0px -2px 5px 0px rgba(0, 255, 255, 0.75);
+}
+
+#btn-up {
+  box-shadow: 4px -4px 5px 0px rgba(0, 139, 139, 0.75);
+  -webkit-box-shadow: 4px -4px 5px 0px rgba(0, 139, 139, 0.75);
+  -moz-box-shadow: 4px -4px 5px 0px rgba(0, 139, 139, 0.75);
+}
+
+#boneka {
+  animation: move 9s linear infinite;
+}
+@keyframes move {
+  0% {
+    transform: translate(0, 0);
+    filter: hue-rotate(0deg);
+  }
+  25% {
+    transform: translate(10px, 0);
+  }
+  50% {
+    transform: translate(10px, 10px);
+  }
+  75% {
+    transform: translate(0, 10px);
+  }
+  100% {
+    transform: translate(0, 0);
+    filter: hue-rotate(360deg);
+  }
+}
+
+@media (min-width: 1284px) {
+  #box-navbar {
+    /* Properti yang hanya ditampilkan di layar desktop */
+    box-shadow: 0 0 20px red;
+  }
+}
+
+@media (width: 360px) {
+  #box-navbarDark {
+    box-shadow: 0 0 25px cyan;
+  }
+  #box-navbarLight {
+    box-shadow: 0 0 25px black;
+  }
+}
+@media (max-width: 500px) {
+  #box-navbarDark {
+    box-shadow: 0 0 25px cyan;
+  }
+  #box-navbarLight {
+    box-shadow: 0 0 25px black;
+  }
+}
+
+#null {
+  user-select: none;
+  user-drag: none;
+}
+
+.welcome {
+  background-color: #ff007f;
+  color: white;
+  text-align: center;
+  height: 100%; /* Memastikan tinggi elemen "welcome" sama dengan tinggi container */
+  display: flex;
+  align-items: center; /* Memusatkan vertikal */
+  justify-content: center; /* Memusatkan horizontal */
+}
+
+/* loading animation */
+.loader {
+  position: relative;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, transparent, transparent 40%, #e5f403);
+  animation: animate 3s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    filter: hue-rotate(360deg);
+  }
+}
+
+.loader:before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  background-image: url(./assets/rinegan.png);
+  background-size: 100%;
+  border-radius: 50%;
+  z-index: 1000;
+}
+
+.loader:after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, transparent, transparent 40%, #e5f403);
+  z-index: 1000;
+  z-index: 1;
+  filter: blur(30px);
+}
