@@ -19,23 +19,21 @@ export const Skills = () => {
       title: 'Frontend Development',
       description: 'Building responsive, accessible, and interactive user interfaces.',
       skills: [
+        { name: 'Svelte', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/svelte/svelte-original.svg', color: 'hover:border-orange-600', shadow: 'hover:shadow-[0_8px_30px_rgba(234,88,12,0.15)]' },
         { name: 'React', img: react, color: 'hover:border-cyan-400', shadow: 'hover:shadow-[0_8px_30px_rgba(34,211,238,0.15)]' },
         { name: 'TypeScript', img: ts, color: 'hover:border-blue-600', shadow: 'hover:shadow-[0_8px_30px_rgba(37,99,235,0.15)]' },
-        { name: 'JavaScript', img: js, color: 'hover:border-yellow-400', shadow: 'hover:shadow-[0_8px_30px_rgba(250,204,21,0.15)]' },
         { name: 'Tailwind CSS', img: tailwind, color: 'hover:border-cyan-500', shadow: 'hover:shadow-[0_8px_30px_rgba(6,182,212,0.15)]' },
         { name: 'Bootstrap', img: boostrap, color: 'hover:border-purple-500', shadow: 'hover:shadow-[0_8px_30px_rgba(147,51,234,0.15)]' },
-        { name: 'HTML5', img: html, color: 'hover:border-orange-500', shadow: 'hover:shadow-[0_8px_30px_rgba(249,115,22,0.15)]' },
-        { name: 'CSS3', img: css, color: 'hover:border-blue-500', shadow: 'hover:shadow-[0_8px_30px_rgba(59,130,246,0.15)]' },
       ]
     },
     {
       title: 'Backend & Database',
       description: 'Developing robust server-side logic and managing data architectures.',
       skills: [
-        { name: 'Node.js', img: nodejs, color: 'hover:border-green-600', shadow: 'hover:shadow-[0_8px_30px_rgba(22,163,74,0.15)]' },
+        { name: 'Laravel', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg', color: 'hover:border-red-500', shadow: 'hover:shadow-[0_8px_30px_rgba(239,68,68,0.15)]' },
         { name: 'NestJS', img: nestjs, color: 'hover:border-red-600', shadow: 'hover:shadow-[0_8px_30px_rgba(220,38,38,0.15)]' },
         { name: 'Express.js', img: ex, color: 'hover:border-gray-400', shadow: 'hover:shadow-[0_8px_30px_rgba(156,163,175,0.15)]' },
-        { name: 'MySQL', img: mysql, color: 'hover:border-blue-800', shadow: 'hover:shadow-[0_8px_30px_rgba(30,64,175,0.15)]' }
+        { name: 'MySQL', img: mysql, color: 'hover:border-blue-800', shadow: 'hover:shadow-[0_8px_30px_rgba(30,64,175,0.15)]' },
       ]
     }
   ];
@@ -94,14 +92,14 @@ export const Skills = () => {
                 </div>
               </div>
 
-              <div className="flex flex-wrap gap-3 sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 sm:gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
                 {category.skills.map((skill, idx) => (
-                  <motion.div key={idx} variants={itemVariants} className="flex-grow sm:flex-grow-0">
-                    <Card className={`group flex items-center p-2.5 sm:p-4 bg-card/60 backdrop-blur-md border border-white/10 dark:border-white/5 transition-all duration-300 ${skill.color} ${skill.shadow} sm:hover:-translate-y-1 overflow-hidden relative cursor-default rounded-full sm:rounded-xl`}>
+                  <motion.div key={idx} variants={itemVariants}>
+                    <Card className={`group flex items-center p-2 sm:p-4 bg-card/60 backdrop-blur-md border border-white/10 dark:border-white/5 transition-all duration-300 ${skill.color} ${skill.shadow} sm:hover:-translate-y-1 overflow-hidden relative cursor-default rounded-xl sm:rounded-xl h-full`}>
                       {/* Subtle background glow on hover */}
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent to-primary/0 sm:group-hover:to-primary/5 transition-colors duration-500 z-0"></div>
 
-                      <div className="w-8 h-8 sm:w-14 sm:h-14 flex-shrink-0 bg-background/80 rounded-full sm:rounded-xl p-1.5 sm:p-2.5 flex items-center justify-center group-hover:bg-background transition-colors z-10 shadow-sm border border-border/50">
+                      <div className="w-10 h-10 sm:w-14 sm:h-14 flex-shrink-0 bg-background/80 rounded-lg sm:rounded-xl p-2 sm:p-2.5 flex items-center justify-center group-hover:bg-background transition-colors z-10 shadow-sm border border-border/50">
                         <img
                           src={skill.img}
                           alt={skill.name}
@@ -109,8 +107,8 @@ export const Skills = () => {
                         />
                       </div>
 
-                      <div className="ml-2 sm:ml-4 z-10 pr-2 sm:pr-0 flex-grow">
-                        <span className="font-bold text-foreground text-sm sm:text-base tracking-wide sm:group-hover:text-primary transition-colors block whitespace-nowrap">
+                      <div className="ml-2.5 sm:ml-4 z-10 break-words flex-1 pr-1">
+                        <span className="font-semibold sm:font-bold text-foreground text-xs sm:text-base tracking-wide sm:group-hover:text-primary transition-colors block leading-tight min-w-0">
                           {skill.name}
                         </span>
                       </div>

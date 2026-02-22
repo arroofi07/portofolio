@@ -123,11 +123,11 @@ export const About = () => {
 
             <div className="relative w-full aspect-square max-w-sm sm:max-w-md mx-auto lg:mx-0 lg:aspect-auto lg:h-[400px] rounded-[2rem] overflow-hidden glass-card border border-border/50 flex items-center justify-center bg-card shadow-xl group">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent/5 to-transparent group-hover:scale-105 transition-transform duration-700 ease-out"></div>
-              
+
               {/* Decorative Blur Orbs */}
               <div className="absolute -top-10 -left-10 w-40 h-40 bg-primary/20 rounded-full mix-blend-screen filter blur-[50px] animate-pulse"></div>
               <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-blue-400/20 rounded-full mix-blend-screen filter blur-[50px] animate-pulse animation-delay-1000"></div>
-              
+
               <div className="relative z-10 text-primary/30 group-hover:text-primary/50 transition-colors duration-500">
                 <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="animate-[spin_20s_linear_infinite]">
                   <polygon points="12 2 2 22 22 22"></polygon>
@@ -139,13 +139,13 @@ export const About = () => {
           {/* Right Side: Text Content & Actions */}
           <div className="w-full lg:w-7/12 flex flex-col justify-center mt-4 lg:mt-0">
             <div className="grid grid-cols-1 gap-4 sm:gap-5">
-              
+
               {/* Card 1: Who I Am */}
               <div className="relative p-5 sm:p-7 rounded-2xl sm:rounded-3xl bg-card border border-border hover:border-primary/40 transition-all duration-300 shadow-sm hover:shadow-md group overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="relative flex flex-col sm:flex-row gap-4 items-start">
                   <div className="p-3 rounded-xl sm:rounded-2xl bg-primary/10 text-primary border border-primary/20 flex-shrink-0">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
                   </div>
                   <div>
                     <h3 className="text-base sm:text-lg font-bold text-foreground mb-1">Who I Am</h3>
@@ -161,12 +161,12 @@ export const About = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="relative flex flex-col sm:flex-row gap-4 items-start">
                   <div className="p-3 rounded-xl sm:rounded-2xl bg-blue-500/10 text-blue-500 border border-blue-500/20 flex-shrink-0">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg>
                   </div>
                   <div>
                     <h3 className="text-base sm:text-lg font-bold text-foreground mb-1">Tech Stack & Journey</h3>
                     <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                      Currently pursuing a degree in computer science, I build dynamic platforms. My core stack includes <strong className="text-blue-500 font-semibold">React, TypeScript, Tailwind CSS</strong>, along with robust backends built on <strong className="text-foreground font-medium">Node.js</strong> and <strong className="text-foreground font-medium">NestJS</strong>.
+                      Currently pursuing a degree in computer science, I build dynamic platforms. My core stack includes <strong className="text-blue-500 font-semibold">React, TypeScript, Tailwind CSS</strong>, along with robust backends built on <strong className="text-foreground font-medium">Node.js, NestJS, and Laravel</strong>. I also enjoy working with <strong className="text-orange-500 font-semibold">Svelte</strong>.
                     </p>
                   </div>
                 </div>
@@ -177,7 +177,7 @@ export const About = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="relative flex flex-col sm:flex-row gap-4 items-start">
                   <div className="p-3 rounded-xl sm:rounded-2xl bg-purple-500/10 text-purple-500 border border-purple-500/20 flex-shrink-0">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" /></svg>
                   </div>
                   <div>
                     <h3 className="text-base sm:text-lg font-bold text-foreground mb-1">My Approach</h3>
