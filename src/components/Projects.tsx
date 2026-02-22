@@ -90,7 +90,7 @@ export const Projects = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8"
         >
           {itemsProjects.map((project, index) => (
             <motion.div
@@ -114,7 +114,7 @@ export const Projects = () => {
                   />
 
                   {/* Floating Tech Badges */}
-                  <div className="absolute top-4 right-4 z-20 flex flex-col gap-2 items-end opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-x-4 group-hover:translate-x-0">
+                  <div className="absolute top-4 right-4 z-20 flex flex-col gap-2 items-end opacity-100 translate-x-0 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300 transform lg:translate-x-4 lg:group-hover:translate-x-0">
                     {project.using.slice(0, 2).map((tech, idx) => (
                       <Badge key={idx} variant="secondary" className="bg-background/90 text-foreground backdrop-blur-sm border-0 shadow-sm text-[10px] px-2 py-0.5 pointer-events-none">
                         {tech}

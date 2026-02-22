@@ -54,7 +54,7 @@ export const Skills = () => {
   };
 
   return (
-    <div id="skills" className="w-full py-16 lg:py-24 px-4 lg:px-6 relative z-10 bg-background/30">
+    <div id="skills" className="w-full py-12 lg:py-24 px-4 lg:px-6 relative z-10 bg-background/30">
       {/* Background glowing orb */}
       <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
 
@@ -94,23 +94,23 @@ export const Skills = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+              <div className="flex flex-wrap gap-3 sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 sm:gap-4">
                 {category.skills.map((skill, idx) => (
-                  <motion.div key={idx} variants={itemVariants}>
-                    <Card className={`group flex items-center p-4 bg-card/60 backdrop-blur-md border-white/10 dark:border-white/5 transition-all duration-300 ${skill.color} ${skill.shadow} hover:-translate-y-1 overflow-hidden relative cursor-default`}>
+                  <motion.div key={idx} variants={itemVariants} className="flex-grow sm:flex-grow-0">
+                    <Card className={`group flex items-center p-2.5 sm:p-4 bg-card/60 backdrop-blur-md border border-white/10 dark:border-white/5 transition-all duration-300 ${skill.color} ${skill.shadow} sm:hover:-translate-y-1 overflow-hidden relative cursor-default rounded-full sm:rounded-xl`}>
                       {/* Subtle background glow on hover */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent to-primary/0 group-hover:to-primary/5 transition-colors duration-500 z-0"></div>
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent to-primary/0 sm:group-hover:to-primary/5 transition-colors duration-500 z-0"></div>
 
-                      <div className="w-14 h-14 flex-shrink-0 bg-background/80 rounded-xl p-2.5 flex items-center justify-center group-hover:bg-background transition-colors z-10 shadow-sm border border-border/50">
+                      <div className="w-8 h-8 sm:w-14 sm:h-14 flex-shrink-0 bg-background/80 rounded-full sm:rounded-xl p-1.5 sm:p-2.5 flex items-center justify-center group-hover:bg-background transition-colors z-10 shadow-sm border border-border/50">
                         <img
                           src={skill.img}
                           alt={skill.name}
-                          className="w-full h-full object-contain filter drop-shadow-sm group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300"
+                          className="w-full h-full object-contain filter drop-shadow-sm sm:group-hover:scale-110 sm:group-hover:rotate-3 transition-transform duration-300"
                         />
                       </div>
 
-                      <div className="ml-4 z-10 flex-grow">
-                        <span className="font-bold text-foreground text-base tracking-wide group-hover:text-primary transition-colors block">
+                      <div className="ml-2 sm:ml-4 z-10 pr-2 sm:pr-0 flex-grow">
+                        <span className="font-bold text-foreground text-sm sm:text-base tracking-wide sm:group-hover:text-primary transition-colors block whitespace-nowrap">
                           {skill.name}
                         </span>
                       </div>

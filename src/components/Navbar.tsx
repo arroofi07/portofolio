@@ -79,7 +79,7 @@ export const Navbar = () => {
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="lg:hidden flex items-center space-x-2 z-50">
+        <div className="lg:hidden flex items-center space-x-2 z-50 mr-4 sm:mr-0">
           <Button
             variant="ghost"
             size="icon"
@@ -88,7 +88,7 @@ export const Navbar = () => {
           >
             {colorMode ? <BsSun className="text-xl text-yellow-500" /> : <BsMoonStars className="text-xl text-primary" />}
           </Button>
-          <Button variant="ghost" size="icon" onClick={() => setActiveNav(!activeNav)} className="text-3xl transition-transform hover:rotate-90">
+          <Button variant="ghost" size="icon" onClick={() => setActiveNav(!activeNav)} className="text-2xl rounded-full bg-muted/50 hover:bg-muted transition-transform hover:rotate-90">
             {activeNav ? <IoMdClose /> : <IoMdMenu />}
           </Button>
         </div>
@@ -99,10 +99,10 @@ export const Navbar = () => {
         {activeNav && (
           <motion.div
             initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
-            animate={{ opacity: 1, backdropFilter: "blur(16px)" }}
+            animate={{ opacity: 1, backdropFilter: "blur(24px)" }}
             exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 flex flex-col items-center justify-center bg-background/90"
+            className="fixed inset-0 z-40 flex flex-col items-center justify-center bg-background/95"
           >
             <ul className="flex flex-col items-center space-y-8 text-3xl font-bold tracking-tight">
               {navLinks.map((item, index) => (
@@ -113,7 +113,7 @@ export const Navbar = () => {
                   transition={{ delay: index * 0.1 }}
                   className="cursor-pointer hover:text-primary transition-colors text-foreground w-full text-center py-4"
                 >
-                  <a href={item.link} onClick={(e) => handleScroll(e, item.link)} className="block w-full">{item.title}</a>
+                  <a href={item.link} onClick={(e) => handleScroll(e, item.link)} className="block w-full h-full text-4xl">{item.title}</a>
                 </motion.li>
               ))}
             </ul>

@@ -45,7 +45,7 @@ export const Contact = () => {
   };
 
   return (
-    <div id="contact" className="w-full relative py-16 lg:py-24 px-4 lg:px-6 mt-10 lg:mt-20 transition-colors duration-300 z-10">
+    <div id="contact" className="w-full relative py-12 lg:py-24 px-4 lg:px-6 mt-10 lg:mt-20 transition-colors duration-300 z-10">
       {/* Dynamic background for Contact section */}
       <div className="absolute inset-0 bg-background pointer-events-none -z-10"></div>
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
@@ -101,7 +101,7 @@ export const Contact = () => {
                   id="user_name"
                   required
                   placeholder="Your Name"
-                  className="bg-background/80 focus-visible:ring-primary py-6 rounded-xl border-muted-foreground/30 hover:border-primary/50 transition-colors shadow-sm"
+                  className="bg-background/80 focus-visible:ring-primary py-5 lg:py-6 rounded-xl border-muted-foreground/30 hover:border-primary/50 transition-colors shadow-sm"
                 />
               </div>
 
@@ -113,7 +113,7 @@ export const Contact = () => {
                   id="user_email"
                   required
                   placeholder="you@example.com"
-                  className="bg-background/80 focus-visible:ring-primary py-6 rounded-xl border-muted-foreground/30 hover:border-primary/50 transition-colors shadow-sm"
+                  className="bg-background/80 focus-visible:ring-primary py-5 lg:py-6 rounded-xl border-muted-foreground/30 hover:border-primary/50 transition-colors shadow-sm"
                 />
               </div>
 
@@ -133,7 +133,7 @@ export const Contact = () => {
                 type="submit"
                 disabled={status === 'loading'}
                 size="lg"
-                className="mt-4 w-full flex items-center justify-center gap-2 py-6 text-lg bg-primary text-primary-foreground font-bold rounded-xl hover:bg-primary/90 disabled:opacity-70 transition-all shadow-[0_4px_14px_hsl(var(--primary)/0.3)] hover:shadow-[0_10px_30px_hsl(var(--primary)/0.4)] hover:-translate-y-1"
+                className="mt-4 w-full flex items-center justify-center gap-2 py-5 lg:py-6 text-lg bg-primary text-primary-foreground font-bold rounded-xl hover:bg-primary/90 disabled:opacity-70 transition-all shadow-[0_4px_14px_hsl(var(--primary)/0.3)] hover:shadow-[0_10px_30px_hsl(var(--primary)/0.4)] hover:-translate-y-1"
               >
                 {status === 'loading' ? (
                   <span className="animate-pulse">Sending...</span>
