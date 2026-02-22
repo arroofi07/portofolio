@@ -1,58 +1,28 @@
-import { useEffect, useState } from "react"
 import { About } from "./components/About"
 import { Navbar } from "./components/Navbar"
 import { Projects } from "./components/Projects"
 import { Skills } from "./components/Skills"
+import { Contact } from "./components/Contact"
 import { ThemeProvider } from "./components/ThemeColorMode"
-import TypewriterComponent from "typewriter-effect"
-// import {activeForm} from 
-
+import { motion } from "framer-motion"
 
 function App() {
-
-  const [sayHello, setSayHello] = useState<boolean>(true)
-
-  useEffect(() => {
-    let timer: any;
-
-    if (sayHello) {
-      timer = setTimeout(() => {
-        setSayHello(false)
-      }, 2000)
-    }
-
-    return () => clearTimeout(timer)
-  }, [sayHello])
-
-
   return (
-    <>
-      {sayHello ? (
-        // welcome
-        < div className="text-white bg-black w-[100%] h-[100%] absolute flex flex-col justify-center items-center text-center space-y-10 text-[20px] font-serif font-extrabold " >
-          <h1 className="loader" ></h1 >
-          <h1>
-            <TypewriterComponent
-              options={{
-                strings: ['Loading'],
-                autoStart: true,
-                loop: true,
-              }}
-            />
-          </h1>
-        </div >
-      ) : (
-        <ThemeProvider>
-          <Navbar />
+    <ThemeProvider>
+      <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
+        <Navbar />
+        <motion.main
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+        >
           <About />
           <Skills />
           <Projects />
-        </ThemeProvider>
-      )}
-
-
-
-    </>
+          <Contact />
+        </motion.main>
+      </div>
+    </ThemeProvider>
   )
 }
 

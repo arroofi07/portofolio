@@ -1,112 +1,140 @@
-import { useContext, useState } from "react";
-import { FaHamburger } from "react-icons/fa";
-import { Link } from 'react-scroll';
-import { IoMdClose } from "react-icons/io";
+import { useState, useEffect, useContext } from "react";
+import { IoMdClose, IoMdMenu } from "react-icons/io";
 import { FaArrowUp } from "react-icons/fa";
-import { BsMoonStars } from "react-icons/bs"
-import { WiDaySunnyOvercast } from "react-icons/wi";
+import { BsMoonStars, BsSun } from "react-icons/bs";
 import { ThemeContext } from "./ThemeColorMode";
-
-
+import { motion, AnimatePresence } from "framer-motion";
+import { Button } from "@/components/ui/button";
 
 export const Navbar = () => {
-  const [activeNav, setActiveNav] = useState(false)
-  const { colorMode, setColorMode } = useContext<any>(ThemeContext)
+  const [activeNav, setActiveNav] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const { colorMode, setColorMode } = useContext<any>(ThemeContext);
 
-  const toogleColorMode = () => {
-    setColorMode(!colorMode)
-  }
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
+  const toggleColorMode = () => setColorMode(!colorMode);
 
-  const listNavbarNav = [
-    {
-      title: 'About',
-      link: 'about'
-    },
-    {
-      title: 'Skills',
-      link: 'skills'
-    },
-    {
-      title: 'projects',
-      link: 'projects'
-    },
-    {
-      title: 'Contact',
-      link: 'contact'
+  const navLinks = [
+    { title: 'About', link: '#about' },
+    { title: 'Skills', link: '#skills' },
+    { title: 'Projects', link: '#projects' },
+    { title: 'Contact', link: '#contact' }
+  ];
+
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, link: string) => {
+    e.preventDefault();
+    const element = document.querySelector(link);
+    if (element) {
+      const y = element.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top: y, behavior: 'smooth' });
     }
-  ]
+    setActiveNav(false);
+  };
 
   const handleScrollToTop = () => {
-    window.scroll({
-      top: 0,
-      behavior: 'smooth'
-    })
-    setActiveNav(false)
-  }
-
-  const validateboxShadowNav = colorMode ? 'box-navbarLight' : 'box-navbarDark'
-
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setActiveNav(false);
+  };
 
   return (
-    <div className="flex flex-col justify-center items-center">
+    <>
+      <motion.nav
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 lg:px-16 transition-all duration-500 ${scrolled ? 'glass py-4 shadow-sm' : 'bg-transparent py-6'}`}
+      >
+        <div
+          className="text-2xl font-extrabold tracking-tighter cursor-pointer text-foreground flex items-center z-50"
+          onClick={handleScrollToTop}
+        >
+          <span className="text-primary">Ar</span>roofi.
+        </div>
 
-      <nav
-        style={{
-          boxShadow: `0 0 45px ${colorMode ? "black" : "cyan"}`,
-          borderBottomLeftRadius: '20px',
-          borderBottomRightRadius: '20px',
-          backdropFilter: 'blur(5px)'
-        }}
-        className={`flex justify-start border-b-2 bg-blend-saturation border-cyan-500 z-50 bg-opacity-60 bg-transparent font-serif font-semibold pl-3 pt-3 text-white text-[33px] h-[60px] w-[99%]  fixed top-0 lg:z-10 lg:pl-10  ${colorMode ? "border-b-[3px]" : ""} `}>
-        <p onClick={toogleColorMode} className={`text-black  text-[25px] cursor-pointer h-7 w-[60px] flex justify-start items-center rounded-[19px] mt-1 border-2 border-cyan-400  `} >
-          <button type="button" className={`text-[22px] border-1 cursor-pointer border-cyan-400 rounded-[20px] w-[30px] h-[25px] bg-cyan-700 flex justify-center items-center duration-700 ${colorMode ? "ml-[27px] w-[32px] text-yellow-400 " : "text-yellow-500"} `} >
-            {colorMode ? (
-              <BsMoonStars />
-            ) : (
-              <WiDaySunnyOvercast />
-            )}
-          </button>
-        </p>
-        <p onClick={() => setActiveNav(!activeNav)} className={` fixed right-4  active:animate-ping hover:text-rose-500 lg:hidden ${activeNav ? `${colorMode ? 'text-black' : 'text-white'}` : 'text-cyan-500'} `} >
-          {activeNav ? (
-            <IoMdClose />
-          ) : (
-            <FaHamburger />
-          )}
-        </p>
-      </nav >
+        {/* Desktop Menu */}
+        <div className="hidden lg:flex items-center space-x-8">
+          <ul className="flex space-x-8 text-sm font-medium tracking-wide">
+            {navLinks.map((item, index) => (
+              <li key={index} className="relative group cursor-pointer text-muted-foreground hover:text-foreground transition-colors overflow-hidden py-1">
+                <a href={item.link} onClick={(e) => handleScroll(e, item.link)}>{item.title}</a>
+                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-primary transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out"></span>
+              </li>
+            ))}
+          </ul>
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggleColorMode}
+            className="rounded-full bg-muted/50 hover:bg-muted transition-colors"
+          >
+            {colorMode ? <BsSun className="text-xl text-yellow-500" /> : <BsMoonStars className="text-xl text-primary" />}
+          </Button>
+        </div>
 
+        {/* Mobile Menu Button */}
+        <div className="lg:hidden flex items-center space-x-2 z-50">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggleColorMode}
+            className="rounded-full bg-muted/50 hover:bg-muted transition-colors"
+          >
+            {colorMode ? <BsSun className="text-xl text-yellow-500" /> : <BsMoonStars className="text-xl text-primary" />}
+          </Button>
+          <Button variant="ghost" size="icon" onClick={() => setActiveNav(!activeNav)} className="text-3xl transition-transform hover:rotate-90">
+            {activeNav ? <IoMdClose /> : <IoMdMenu />}
+          </Button>
+        </div>
+      </motion.nav>
 
-      {/* navbarNav */}
-      <div className={`  w-full flex justify-center items-center z-10 text-[18px] `} >
-        <ul
-          id={validateboxShadowNav}
-          style={{
-            borderBottomLeftRadius: "10px",
-            borderBottomRightRadius: '10px',
-            backdropFilter: "blur(1px)"
-          }}
-          className={`text-white bg-sky-500 fixed font-serif font-semibold capitalize border-[1px] bg-opacity-40 duration-700 pt-40 space-y-5  w-[95%]  ${activeNav ? "mt-52" : "mt-[-500px]"} lg:space-x-5 lg:bg-transparent lg:border-none lg:text-[10px] lg:flex lg:w-[30%] lg:mr-[70px] lg:top-[340px] lg:right-0 `} >
-          {listNavbarNav.map((item, index) => (
-            <li key={index}
-              style={{ borderTopLeftRadius: '0px', borderBottomRightRadius: '0px', boxShadow: '0 0 5px black' }}
-              className={` border-cyan-400 active:animate-ping border-[2px] text-center w-[90%] ml-[17px] mt-5 rounded-[15px] hover:bg-cyan-400 hover:text-black cursor-pointers hover:border-black lg:bg-transparent lg:z-40 lg:w-[80px]  ${colorMode ? 'lg:text-black  lg:border-cyan-400 bg-black lg:hover:bg-black lg:hover:text-white lg:hover:border-cyan-400' : 'lg:bg-slate-950 bg-black'} `} >
-              <Link to={item.link} smooth={true} duration={500} className="pl-28 pr-28 lg:pl-5 lg:pr-5 cursor-pointer select-none ">{item.title}</Link>
-            </li>
-          ))}
-          <p className="h-2" ></p>
-        </ul>
-      </div>
+      {/* Mobile Menu Backdrop */}
+      <AnimatePresence>
+        {activeNav && (
+          <motion.div
+            initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
+            animate={{ opacity: 1, backdropFilter: "blur(16px)" }}
+            exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-40 flex flex-col items-center justify-center bg-background/90"
+          >
+            <ul className="flex flex-col items-center space-y-8 text-3xl font-bold tracking-tight">
+              {navLinks.map((item, index) => (
+                <motion.li
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="cursor-pointer hover:text-primary transition-colors text-foreground w-full text-center py-4"
+                >
+                  <a href={item.link} onClick={(e) => handleScroll(e, item.link)} className="block w-full">{item.title}</a>
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-      {/* Button to up */}
-      <button id="btn-up" type="button" onClick={handleScrollToTop}
-        className="text-[30px] active:animate-ping hover:bg-black hover:text-white text-black bottom-16 border-[1px] border-black right-6 z-50 bg-cyan-500 rounded-[8px] p-2 fixed ">
-        <FaArrowUp />
-      </button>
-
-
-    </div>
-  )
-}
-
+      {/* Back to top button */}
+      <AnimatePresence>
+        {scrolled && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.5, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.5, y: 20 }}
+            onClick={handleScrollToTop}
+            className="fixed bottom-8 right-8 z-50 p-3 rounded-full bg-primary text-primary-foreground shadow-lg hover:shadow-primary/50 hover:scale-110 transition-all duration-300 pointer-events-auto"
+          >
+            <FaArrowUp />
+          </motion.button>
+        )}
+      </AnimatePresence>
+    </>
+  );
+};
