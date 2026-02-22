@@ -186,7 +186,7 @@ export const Projects = () => {
       <div className='space-y-6 flex flex-col justify-center items-center lg:flex-row lg:flex-wrap lg:justify-center lg:items-center lg:w-full  lg:space-y-7 lg:pl-4 ' >
         {itemsProjects.map((value, key) => (
           <ul
-            id={value.text == 'dont-use' ? 'dont-use' : 'null'}
+            id={`${value.text === 'dont-use' ? 'dont-use' : 'null'}`}
             key={key}
             style={{ boxShadow: `0 0 13px ${colorMode ? 'black' : 'cyan'}` }}
             className={`mt-6 w-[85%] text-center flex flex-col justify-center items-center ${colorMode ? 'border-[2px]' : 'border-[1px] '} ${value.text === 'dont-use' ? 'lg:bg-transparent lg:text-transparent -z-50 ' : ''}  rounded-b-[20px] border-cyan-400 h-auto rounded-[20px] lg:w-[43%] lg:ml-5 lg:mr-7 ${colorMode ? 'bg-slate-200' : 'bg-black'} `}

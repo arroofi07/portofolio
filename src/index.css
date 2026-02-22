@@ -2,10 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* #root {
-  
+#root {
   background: linear-gradient(to right, #ffffff, #a4d7e1);
-} */
+}
 
 #boxProjects {
   box-shadow: 0px 7px 5px 0px rgba(0, 139, 139, 0.75);

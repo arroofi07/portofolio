@@ -60,7 +60,7 @@ export const Navbar = () => {
         }}
         className={`flex justify-start border-b-2 bg-blend-saturation border-cyan-500 z-50 bg-opacity-60 bg-transparent font-serif font-semibold pl-3 pt-3 text-white text-[33px] h-[60px] w-[99%]  fixed top-0 lg:z-10 lg:pl-10  ${colorMode ? "border-b-[3px]" : ""} `}>
         <p onClick={toogleColorMode} className={`text-black  text-[25px] cursor-pointer h-7 w-[60px] flex justify-start items-center rounded-[19px] mt-1 border-2 border-cyan-400  `} >
-          <button type="button" className={`text-[22px] border-1 cursor-pointe border-cyan-400 rounded-[20px] w-[30px] h-[25px] bg-cyan-700 flex justify-center items-center duration-700 ${colorMode ? "ml-[27px] w-[32px] text-yellow-400 " : "text-yellow-500"} `} >
+          <button type="button" className={`text-[22px] border-1 cursor-pointer border-cyan-400 rounded-[20px] w-[30px] h-[25px] bg-cyan-700 flex justify-center items-center duration-700 ${colorMode ? "ml-[27px] w-[32px] text-yellow-400 " : "text-yellow-500"} `} >
             {colorMode ? (
               <BsMoonStars />
             ) : (
@@ -91,7 +91,7 @@ export const Navbar = () => {
           {listNavbarNav.map((item, index) => (
             <li key={index}
               style={{ borderTopLeftRadius: '0px', borderBottomRightRadius: '0px', boxShadow: '0 0 5px black' }}
-              className={` border-cyan-400 active:animate-ping border-[2px] text-center w-[90%] ml-[17px] mt-5 rounded-[15px] hover:bg-cyan-400 hover:text-black cursor-pointers hover:border-black lg:bg-transparent lg:z-40 lg:w-[80px]  ${colorMode ? 'lg:text-black lg:bg-cyan-300 lg:border-black bg-black lg:hover:bg-black lg:hover:text-white lg:hover:border-cyan-400' : 'lg:bg-slate-900 bg-black'} `} >
+              className={` border-cyan-400 active:animate-ping border-[2px] text-center w-[90%] ml-[17px] mt-5 rounded-[15px] hover:bg-cyan-400 hover:text-black cursor-pointers hover:border-black lg:bg-transparent lg:z-40 lg:w-[80px]  ${colorMode ? 'lg:text-black  lg:border-cyan-400 bg-black lg:hover:bg-black lg:hover:text-white lg:hover:border-cyan-400' : 'lg:bg-slate-950 bg-black'} `} >
               <Link to={item.link} smooth={true} duration={500} className="pl-28 pr-28 lg:pl-5 lg:pr-5 cursor-pointer select-none ">{item.title}</Link>
             </li>
           ))}

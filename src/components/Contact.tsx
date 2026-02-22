@@ -18,11 +18,11 @@ export const Contact = () => {
       timer = setTimeout(() => {
         setActiveNotifSuccess(false)
         setActiveNotifFailed(false)
-      }, 5000)
+      }, 2000)
     }
 
     return () => clearTimeout(timer)
-  }, [])
+  }, [activNotifSuccess])
 
 
 
@@ -85,7 +85,7 @@ export const Contact = () => {
             <input type="text" name="user_name" autoComplete='off' placeholder='Name' className={`mb-8 w-[85%] outline-none pl-2 border-b-2 bg-slate-800 bg-transparent  placeholder:font-bold lg:placeholder:opacity-70  ${colorMode ? 'placeholder:text-black border-cyan-600' : 'placeholder:text-white border-cyan-400'}  `} /><br></br>
 
             {/* <label className='font-bold '>Email</label><br></br> */}
-            <input type="email" name="user_email" autoComplete='off' placeholder='Email' className={`mb-8 placeholder:font-bold outline-none bg-transparent focus:bg-blacks w-[85%] pl-2 border-b-2 bg-slate-800 lg:placeholder:opacity-70 ${colorMode ? 'placeholder:text-black  border-cyan-600' : 'placeholder:text-white  border-cyan-400'} `} /><br></br>
+            <input type="email" name="user_email" autoComplete='off' placeholder='Email' className={`mb-8 placeholder:font-bold outline-none bg-transparent focus:bg-black w-[85%] pl-2 border-b-2 bg-slate-800 lg:placeholder:opacity-70 ${colorMode ? 'placeholder:text-black  border-cyan-600' : 'placeholder:text-white  border-cyan-400'} `} /><br></br>
 
             {/* <label className='font-bold '>Message</label><br></br> */}
             <textarea name="message" autoComplete='off' placeholder='Message' className={`outline-none placeholder:font-bold focus:h-14 h-7  pl-2 resize-none w-[85%] bg-slate-800 border-b-2 bg-transparent lg:placeholder:opacity-70  ${colorMode ? 'placeholder:text-black border-cyan-600' : 'placeholder:text-white border-cyan-400'}  `} /><br></br>

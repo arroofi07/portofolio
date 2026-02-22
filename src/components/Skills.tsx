@@ -84,7 +84,7 @@ export const Skills = () => {
 
 
   return (
-    <div id='skills' className={`relative top-[90px]  w-full pt-[30px] pb-[150px] ${colorMode ? "bg-white" : ""}  `} >
+    <div id='skills' className={`relative top-[90px]  w-full pt-[30px] pb-[150px] ${colorMode ? "bg-white" : "bg-black"}  `} >
       <h1 className="font-bold text-sky-400 text-center text-[25px]" >My Skills</h1>
 
 

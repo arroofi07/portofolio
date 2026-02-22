@@ -56,7 +56,7 @@ export const About = () => {
   let validateBg = colorMode ? bgLight : bgDark
 
   return (
-    <div className={`font-serif w-full mt-[-110px] pt-[100px] pb-[100px] text-[27px] relative top-24 font-bold ${colorMode ? "bg-white" : ""} lg:mt-[-200px] lg:pt-[300px] `} >
+    <div className={`font-serif w-full mt-[-110px] pt-[100px] pb-[100px] text-[27px] relative top-24 font-bold ${colorMode ? "bg-white" : "bg-black"} lg:mt-[-200px] lg:pt-[300px] `} >
       <h1
         id='about'
         className={`capitalize text-sky-400 ml-4 text-[34px] font-sans font-bold w-[70%] h-[30px] lg:text-[50px] lg:w-[50%] ${colorMode ? "text-cyan-500" : ""}  `} >
@@ -77,12 +77,12 @@ export const About = () => {
           </span>
         </span>
       </p>
-      <p className={`flex justify-start pl-4  items-center space-x-3 mt-10  text-[30px] cursor-pointer  lg:mt-16 ${colorMode ? "text-black" : "text-white"} `} >
+      <p className={`flex justify-start pl-4 select-none items-center space-x-3 mt-10  text-[30px]   lg:mt-16 ${colorMode ? "text-black" : "text-white"} `} >
         {icons.map((item, key) => (
           <ul key={key} >
-            <li className='hover:text-cyan-500 ' >{item.github}</li>
-            <li className='hover:text-cyan-500' >{item.linkEdin}</li>
-            <li className='hover:text-cyan-500' >{item.email}</li>
+            <li className='hover:text-cyan-500 cursor-pointer ' >{item.github}</li>
+            <li className='hover:text-cyan-500 cursor-pointer ' >{item.linkEdin}</li>
+            <li className='hover:text-cyan-500 cursor-pointer' >{item.email}</li>
           </ul>
         ))}
       </p>
